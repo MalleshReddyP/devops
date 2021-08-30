@@ -1,0 +1,12 @@
+node{
+    
+    stage('checking maven version'){
+        bat 'mvn -v'
+    }
+    stage('clone repo'){
+        git credentialsId: 'Mallesh', url: 'https://github.com/MalleshReddyP/devops.git'
+    }
+    stage('build'){
+        bat 'mvn test package install'
+    }
+}
